@@ -1,6 +1,6 @@
 #include "WindowSystem.h"
 
-GLFWwindow* CreateWindow()
+GLFWwindow* CreateGameWindow()
 {
   //Instantiate window.
   glfwInit();
@@ -21,11 +21,11 @@ GLFWwindow* CreateWindow()
   }
   glfwMakeContextCurrent(window);
 
-  //Init glew so that we can use OpenGL functions.
-  glewExperimental = GL_TRUE;
-  if (glewInit() != GLEW_OK)
+  //Init glad.
+  if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
   {
-    std::cout << "Failed to init GLEW" << std::endl;
+    //If it fails, return nothing.
+    std::cout << "Failed to init GLAD." << std::endl;
     return nullptr;
   }
 

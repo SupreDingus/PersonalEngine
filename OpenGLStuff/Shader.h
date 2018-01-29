@@ -10,7 +10,7 @@
 #include <iostream>
 
 //Can't forget glew, since this is still OpenGL.
-#include <GL\glew.h>
+#include <glad/glad.h>
 
 class Shader
 {

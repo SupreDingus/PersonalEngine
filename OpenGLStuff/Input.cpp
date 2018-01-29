@@ -3,25 +3,19 @@
 Input system. Handles and distributes input.
 */
 /*****************************************************************************/
-
-//GLEW stuff.
-#define GLEW_STATIC
-#include <GL\glew.h>
-//GLFW stuff.
-#include <glfw3.h>
-
 //My includes
 #include "Input.h"
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
+  //Check for close.
   if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-    glfwSetWindowShouldClose(window, GL_TRUE);
+    glfwSetWindowShouldClose(window, true);
 
   //Try to find the key on the map.
-  auto check = INPUT->keyState.find(key);
+  auto check = INPUTSYSTEM->keyState.find(key);
   
-  if (check != INPUT->keyState.end())
+  if (check != INPUTSYSTEM->keyState.end())
   {
     //If found, update state.
     if (check->second == PRESSED && action == GLFW_PRESS)
@@ -44,22 +38,22 @@ void joystick_callback(int joy, int event)
   //Handle controller connect and disconnect here.
   if (event == GLFW_CONNECTED)
   {
-    INPUT->SetControllerStatus(true);
+    INPUTSYSTEM->SetControllerStatus(true);
   }
   else if (event == GLFW_DISCONNECTED)
   {
-    INPUT->SetControllerStatus(false);
+    INPUTSYSTEM->SetControllerStatus(false);
   }
 }
 
-Input* INPUT = nullptr;
+Input* INPUTSYSTEM = nullptr;
 
 Input::Input() { }
 Input::~Input() { }
 
 void Input::Initialize()
 {
-  INPUT = this;
+  INPUTSYSTEM = this;
   window = nullptr;
 
   //Check for controller on start.

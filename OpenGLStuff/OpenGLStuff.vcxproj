@@ -69,8 +69,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Mark\Documents\Visual Studio 2015\Projects\OpenGLStuff\OpenGLStuff\Include;C:\Users\Mark\Desktop\glew-2.0.0\Simple OpenGL Image Library\src;C:\Users\Mark\Desktop\glew-2.0.0\include;C:\Users\Mark\Desktop\glfw-3.2.1\add;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Mark\Documents\Visual Studio 2015\Projects\OpenGLStuff\OpenGLStuff\Lib;C:\Users\Mark\Desktop\glew-2.0.0\Simple OpenGL Image Library\projects\VC9\Release;C:\Users\Mark\Desktop\glew-2.0.0\lib\Release\Win32;C:\Users\Mark\Desktop\glfw-3.2.1\add;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir)Include;$(ProjectDir)Include\glad;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)Lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(ProjectDir)Include\glad;$(ProjectDir)Include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)Lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -79,7 +83,7 @@
       <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>SOIL.lib;glew32s.lib;opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -88,6 +92,9 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
     </ClCompile>
+    <Link>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -120,6 +127,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="GroundDetection.cpp" />
+    <ClCompile Include="Include\glad\src\glad.c" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Logic.cpp" />
     <ClCompile Include="main.cpp" />
@@ -155,6 +163,7 @@
     <ClInclude Include="RigidBody.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="stb_image.h" />
     <ClInclude Include="System.h" />
     <ClInclude Include="SystemIncludes.h" />
     <ClInclude Include="Transform.h" />

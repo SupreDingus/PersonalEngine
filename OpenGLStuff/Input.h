@@ -5,10 +5,12 @@
 /*****************************************************************************/
 #pragma once
 
+//OpenGL
+//#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
 //System includes.
 #include "System.h"
-#include <GL\glew.h>
-#include <glfw3.h>
 
 //STL includes.
 #include <map>
@@ -86,4 +88,4 @@ private:
   std::map<ACTION, int> actionKey;
 };
 
-extern Input* INPUT;
+extern Input* INPUTSYSTEM;

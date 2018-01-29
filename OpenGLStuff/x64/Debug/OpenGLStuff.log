@@ -1,33 +1,28 @@
-﻿  WindowSystem.cpp
-e:\openglstyff\openglstuff\windowsystem.h(5): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
-  Transform.cpp
-e:\openglstyff\openglstuff\math.h(8): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
-  Sprite.cpp
-e:\openglstyff\openglstuff\math.h(8): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
-  Shader.cpp
-e:\openglstyff\openglstuff\shader.h(13): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
-  RigidBody.cpp
-e:\openglstyff\openglstuff\rigidbody.h(12): fatal error C1083: Cannot open include file: 'glm\glm.hpp': No such file or directory
-  PlayerController.cpp
-e:\openglstyff\openglstuff\input.h(10): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
-  Physics.cpp
-  ObjectFactory.cpp
-e:\openglstyff\openglstuff\math.h(8): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
-  Collider.cpp
-e:\openglstyff\openglstuff\collider.h(11): fatal error C1083: Cannot open include file: 'glm\glm.hpp': No such file or directory
-  Math.cpp
-e:\openglstyff\openglstuff\math.h(8): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
-  main.cpp
-e:\openglstyff\openglstuff\main.cpp(3): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
-  Logic.cpp
-  Input.cpp
-e:\openglstyff\openglstuff\input.cpp(9): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
-  GroundDetection.cpp
-e:\openglstyff\openglstuff\math.h(8): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
-  Graphics.cpp
-e:\openglstyff\openglstuff\graphics.h(5): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
-  GameObject.cpp
-e:\openglstyff\openglstuff\math.h(8): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
-  Buffer.cpp
-e:\openglstyff\openglstuff\graphics.h(5): fatal error C1083: Cannot open include file: 'GL\glew.h': No such file or directory
+﻿  Buffer.cpp
   Generating Code...
+  Compiling...
+  main.cpp
+c:\users\super\desktop\openglstyff\openglstuff\main.cpp(142): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Sprite.cpp
+  Graphics.cpp
+  Generating Code...
+Input.obj : error LNK2019: unresolved external symbol glfwSetWindowShouldClose referenced in function "void __cdecl key_callback(struct GLFWwindow *,int,int,int,int)" (?key_callback@@YAXPEAUGLFWwindow@@HHHH@Z)
+Input.obj : error LNK2019: unresolved external symbol glfwJoystickPresent referenced in function "public: virtual void __cdecl Input::Initialize(void)" (?Initialize@Input@@UEAAXXZ)
+Input.obj : error LNK2019: unresolved external symbol glfwGetJoystickAxes referenced in function "public: virtual void __cdecl Input::Update(float)" (?Update@Input@@UEAAXM@Z)
+Input.obj : error LNK2019: unresolved external symbol glfwGetJoystickButtons referenced in function "public: virtual void __cdecl Input::Update(float)" (?Update@Input@@UEAAXM@Z)
+main.obj : error LNK2019: unresolved external symbol glfwTerminate referenced in function main
+WindowSystem.obj : error LNK2001: unresolved external symbol glfwTerminate
+main.obj : error LNK2019: unresolved external symbol glfwWindowShouldClose referenced in function main
+main.obj : error LNK2019: unresolved external symbol glfwPollEvents referenced in function main
+main.obj : error LNK2019: unresolved external symbol glfwSetKeyCallback referenced in function main
+main.obj : error LNK2019: unresolved external symbol glfwSetJoystickCallback referenced in function main
+main.obj : error LNK2019: unresolved external symbol glfwGetTime referenced in function main
+main.obj : error LNK2019: unresolved external symbol glfwSwapBuffers referenced in function main
+WindowSystem.obj : error LNK2019: unresolved external symbol glfwInit referenced in function "struct GLFWwindow * __cdecl CreateGameWindow(void)" (?CreateGameWindow@@YAPEAUGLFWwindow@@XZ)
+WindowSystem.obj : error LNK2019: unresolved external symbol glfwWindowHint referenced in function "struct GLFWwindow * __cdecl CreateGameWindow(void)" (?CreateGameWindow@@YAPEAUGLFWwindow@@XZ)
+WindowSystem.obj : error LNK2019: unresolved external symbol glfwCreateWindow referenced in function "struct GLFWwindow * __cdecl CreateGameWindow(void)" (?CreateGameWindow@@YAPEAUGLFWwindow@@XZ)
+WindowSystem.obj : error LNK2019: unresolved external symbol glfwGetFramebufferSize referenced in function "struct GLFWwindow * __cdecl CreateGameWindow(void)" (?CreateGameWindow@@YAPEAUGLFWwindow@@XZ)
+WindowSystem.obj : error LNK2019: unresolved external symbol glfwMakeContextCurrent referenced in function "struct GLFWwindow * __cdecl CreateGameWindow(void)" (?CreateGameWindow@@YAPEAUGLFWwindow@@XZ)
+WindowSystem.obj : error LNK2019: unresolved external symbol glfwGetProcAddress referenced in function "struct GLFWwindow * __cdecl CreateGameWindow(void)" (?CreateGameWindow@@YAPEAUGLFWwindow@@XZ)
+C:\Users\super\Desktop\OpenGLStyff\OpenGLStuff\Lib\glfw3.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\super\Desktop\OpenGLStyff\x64\Debug\OpenGLStuff.exe : fatal error LNK1120: 17 unresolved externals
