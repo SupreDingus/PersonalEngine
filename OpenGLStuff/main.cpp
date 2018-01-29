@@ -1,13 +1,18 @@
-//GLEW stuff.
-#define GLEW_STATIC
-#include <GL\glew.h>
-//GLFW stuff.
-#include <glfw3.h>
-//Soil, used for image loading.
-#include <SOIL.h>
+/*****************************************************************************/
+/*!
+  Main file. Runs everything.
+*/
+/*****************************************************************************/
+
+//OpenGL
+#include <glad\glad.h>
+#include <GLFW/glfw3.h>
+
+//STL
+#include <iostream>
+#include <math.h>
 
 //My includes
-#include <iostream>
 #include "SystemIncludes.h"
 #include "Component.h"
 #include "ComponentIncludes.h"
@@ -17,7 +22,13 @@
 int main()
 {
   //Create the window.
-  GLFWwindow* window = CreateWindow();
+  GLFWwindow* window = CreateGameWindow();
+
+  //Check for failure.
+  if (!window)
+  {
+    return -1;
+  }
 
   //Create necessary systems.
   std::vector<System*> systems_;
@@ -42,14 +53,14 @@ int main()
   //Timer stuff.
   double currTime = 0.0;
   double prevTime = 0.0;
-  double frameTime = 0.0; //This is dt.
+  double frameTime = 0.0;
 
   //Set callbacks.
   input->SetWindow(window);
   glfwSetKeyCallback(window, key_callback);
   glfwSetJoystickCallback(joystick_callback);
 
-  //TEST OBJECT
+  //TEST OBJECTS
   GameObject* obj = new GameObject;
   obj->CreateObject();
 
@@ -124,6 +135,9 @@ int main()
     currTime = glfwGetTime();
     frameTime = currTime - prevTime;
 
+    //Things seem to being going way too fast.
+    frameTime *= .1;
+
     //Update.
     for (auto it : systems_)
     {
@@ -135,7 +149,9 @@ int main()
     glfwSwapBuffers(window);
   }
 
+  //Delete test objects.
   delete obj;
+  delete obj2;
 
   //Destroy and free everything.
   for (auto it : systems_)
@@ -147,8 +163,4 @@ int main()
   //Terminate before closing.
   glfwTerminate();
   return 0;
-}
-
-DEFINE_META(int)
-{
 }

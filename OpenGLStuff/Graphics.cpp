@@ -1,3 +1,10 @@
+/*****************************************************************************/
+/*!
+  Graphics system header.
+*/
+/*****************************************************************************/
+
+//My includes.
 #include "Graphics.h"
 #include "Buffer.h"
 
@@ -33,7 +40,7 @@ void GraphicsSystem::Initialize()
   {
     while (!file.eof())
     {
-      //Create a new buffer from the fiel.
+      //Create a new buffer from the file.
       Buffer* buff;
       std::string name("../Assets/");
       file >> str;

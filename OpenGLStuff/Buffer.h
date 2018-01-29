@@ -6,7 +6,6 @@
 
 #include "Graphics.h" //openGL stuff.
 #include "Transform.h" //Transform.
-#include <SOIL.h> //image loading.
 
 class Buffer
 {
@@ -38,4 +37,5 @@ private:
   //Size of the texture.
   int width;
   int height;
+  int channels;
 };

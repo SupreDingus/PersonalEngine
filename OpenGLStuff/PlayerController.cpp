@@ -41,7 +41,7 @@ void PlayerController::Initialize()
   move = vec2(0.f, 0.f);
 
   //Put it in the input system.
-  INPUT->RegisterComponent(this);
+  INPUTSYSTEM->RegisterComponent(this);
 }
 
 void PlayerController::Update(float dt)
@@ -50,24 +50,24 @@ void PlayerController::Update(float dt)
 
   //Check for relevant input.
   //If action is pressed or held, do stuff.
-  if (INPUT->IsPressed(MOVE_LEFT) != RELEASED)
+  if (INPUTSYSTEM->IsPressed(MOVE_LEFT) != RELEASED)
   {
     move += glm::vec2(-10.f, 0.f);
   }
-  if (INPUT->IsPressed(MOVE_RIGHT) != RELEASED)
+  if (INPUTSYSTEM->IsPressed(MOVE_RIGHT) != RELEASED)
   {
     move += glm::vec2(10.f, 0.f);
   }
 
   //To jump, we must be grounded.
-  if (INPUT->IsPressed(JUMP) == PRESSED && ground && ground->IsGrounded())
+  if (INPUTSYSTEM->IsPressed(JUMP) == PRESSED && ground && ground->IsGrounded())
   {
-    move += glm::vec2(0.f, 500.f);
+    move += glm::vec2(0.f, 5000.f);
     ground->ChangeGrounded();
   }
 
   //Testing object destruction.
-  if (INPUT->IsPressed(SUICIDE) != RELEASED)
+  if (INPUTSYSTEM->IsPressed(SUICIDE) != RELEASED)
   {
     owner->Destroy();
   }
@@ -76,7 +76,7 @@ void PlayerController::Update(float dt)
 void PlayerController::Destroy()
 {
   //RigidBody will take care of itself.
-  INPUT->DeleteComponent(this);
+  INPUTSYSTEM->DeleteComponent(this);
 }
 
 void PlayerController::SetBody()
