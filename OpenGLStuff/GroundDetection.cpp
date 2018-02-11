@@ -1,6 +1,6 @@
 /*****************************************************************************/
 /*!
-Ground detection. When colliding, checks to see if it's on the ground.
+  Ground detection. When colliding, checks to see if it's on the ground.
 */
 /*****************************************************************************/
 #include "GroundDetection.h"
@@ -63,7 +63,7 @@ void GroundDetection::Update(float dt)
   //Get relevant points. A == this, B == other.
   Manifold man = collide->GetManifold();
   Transform* otherTrans = man.B->GetTransform();
-  
+
   float otherTop = otherTrans->GetPosition().y + (otherTrans->GetScale().y / 2.f);
   float otherLeft = otherTrans->GetPosition().x - (otherTrans->GetScale().x / 2.f);
   float otherRight = otherTrans->GetPosition().x + (otherTrans->GetScale().x / 2.f);
@@ -87,6 +87,18 @@ void GroundDetection::Destroy()
 {
   //Call delete on this component.
   PHYSICS->DeleteComponent(this);
+}
+
+void GroundDetection::Serialize(std::fstream file)
+{
+  //Nothing needs to be sent to the file.
+}
+
+void GroundDetection::Deserialize(std::fstream file)
+{
+  //SetRelevent components.
+  SetTransform();
+  SetCollider();
 }
 
 bool GroundDetection::IsGrounded() const

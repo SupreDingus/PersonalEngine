@@ -79,6 +79,17 @@ void PlayerController::Destroy()
   INPUTSYSTEM->DeleteComponent(this);
 }
 
+void PlayerController::Serialize(std::fstream file)
+{
+  //Nothing to send out...
+}
+
+void PlayerController::Deserialize(std::fstream file)
+{
+  //Get the necessary pointers.
+  SetBody();
+}
+
 void PlayerController::SetBody()
 {
   if (owner)

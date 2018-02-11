@@ -91,6 +91,36 @@ void Collider::Destroy()
   PHYSICS->DeleteComponent(this);
 }
 
+void Collider::Serialize(std::fstream file)
+{
+  //Values that will be put in file: mass, restitution, and AABB corners.
+  //Put each value on it's own line.
+  file << mass << std::endl;
+  file << restitution << std::endl;
+  file << bottomLeft.x << " " << bottomLeft.y << std::endl;
+  file << topRight.x << " " << topRight.y << std::endl;
+}
+
+void Collider::Deserialize(std::fstream file)
+{
+  //Extract mass, restitution, and AABB corners from the file.
+  file >> mass;
+  file >> restitution;
+  file >> bottomLeft.x;
+  file >> bottomLeft.y;
+  file >> topRight.x;
+  file >> topRight.y;
+
+  //Calculate other values based on given ones.
+  invertMass = 1.f / mass;
+  xExtent = abs(topRight.x - bottomLeft.x);
+  yExtent = abs(topRight.y - bottomLeft.y);
+
+  //Set relevent components.
+  SetBody();
+  SetTransform();
+}
+
 RigidBody* Collider::GetRigidBody() const
 {
   return body;

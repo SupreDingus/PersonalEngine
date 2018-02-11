@@ -4,8 +4,12 @@
   Header for components.
 */
 /*****************************************************************************/
+//My includes.
 #include "ComponentTypes.h"
 #include "GameObject.h"
+
+//STL
+#include <iostream> //File IO
 #include <fstream>
 
 class Component
@@ -15,7 +19,9 @@ public:
   virtual void Update(float dt) = 0; //Update loop.
   virtual void Destroy() = 0; //Free necessary stuff.
 
-  virtual void Serialize(std::fstream file) = 0;
+  //Serialization functions.
+  virtual void Serialize(std::ostream file) = 0;
+  virtual void Deserialize(std::istream file) = 0;
 
   //Have an owner pointer and ID.
   GameObject* owner;

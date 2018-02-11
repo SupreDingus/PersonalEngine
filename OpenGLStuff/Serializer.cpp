@@ -5,21 +5,30 @@
 /*****************************************************************************/
 //My includes
 #include "Serializer.h"
+#include "Component.h"
 
-//Nothing to allocate / destroy.
-Serializer::Serializer() { }
+Serializer::Serializer()
+{
+  //Set what the folder prefix will be.
+  folder = "Objects/";
+}
+
+//Nothing to destroy.
 Serializer::~Serializer() { }
 
-void Serialize(GameObject* obj)
+void Serializer::Serialize(GameObject* obj)
 {
   //Get the components.
-  auto list = obj->GetComponents();
+  std::vector<Component *> list = obj->GetComponents();
 
-  //Setup the output.
+  //Setup the output file.
+  std::filebuf fb;
+  fb.open(folder + obj->GetName(), std::ios::out);
+  std::ostream file(&fb);
 
   //Iterate through the list.
-  for (auto it : list)
+  for (unsigned i = 0; i < list.size(); ++i)
   {
-
+    list[i]->Serialize(file);
   }
 }

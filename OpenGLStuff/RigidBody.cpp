@@ -104,6 +104,25 @@ void RigidBody::Destroy()
   PHYSICS->DeleteComponent(this);
 }
 
+void RigidBody::Serialize(std::fstream file)
+{
+  //Input into the file of it's static and if it's bouncy.
+  file << stat << std::endl;
+  file << bouncy << std::endl;
+}
+
+void RigidBody::Deserialize(std::fstream file)
+{
+  //Get the static and bouncy bools.
+  file >> stat;
+  file >> bouncy;
+
+  //Get relevent pointers.
+  SetTransform();
+  SetCollider();
+  SetController();
+}
+
 Transform* RigidBody::GetTransform() const
 {
   return trans;

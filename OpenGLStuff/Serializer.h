@@ -9,7 +9,8 @@
 
 //STL
 #include <string> //String
-#include <fstream> //File I/O
+#include <ostream> //File I/O
+#include <istream>
 
 class Serializer
 {
@@ -19,9 +20,12 @@ public:
   ~Serializer();
 
   //Core functionality.
+  //TODO: Make component serialize return a string.
+  //Output that string to file.
+  //Do something similar with Deserialize.
   void Serialize(GameObject* obj); //Serialize the given object.
   GameObject* Deserialize(std::string); //Find and create the given object.
 
 private:
-  
+  std::string folder;
 };

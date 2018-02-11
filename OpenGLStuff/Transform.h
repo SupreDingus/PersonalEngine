@@ -27,6 +27,8 @@ public:
   void Initialize();
   void Update(float dt);
   void Destroy();
+  void Serialize(std::fstream file);
+  void Deserialize(std::fstream file);
 
   //Change transform stuff here.
   void SetPosition(float, float, float);
@@ -34,8 +36,6 @@ public:
 
   void SetScale(float, float);
   void SetScale(float);
-
-  void SetRotation(float);
 
   //Get stuff.
   glm::mat4 GetTransform() const;
@@ -46,6 +46,5 @@ private:
   //Stuff for transforms.
   glm::vec3 pos, nextPos;
   glm::vec3 scale; //Only change x and y on this.
-  float rot;
   glm::mat4 transform;
 };

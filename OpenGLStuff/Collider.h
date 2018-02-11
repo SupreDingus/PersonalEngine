@@ -37,9 +37,12 @@ public:
   ~Collider();
   Collider(const Collider& rhs) = delete;
 
+  //Required component functions.
   void Initialize();
   void Update(float dt);
   void Destroy();
+  void Serialize(std::fstream file);
+  void Deserialize(std::fstream file);
 
   //Getters and Setters.
   RigidBody* GetRigidBody() const;

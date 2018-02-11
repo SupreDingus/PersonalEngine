@@ -29,6 +29,8 @@ public:
   void Initialize();
   void Update(float dt);
   void Destroy();
+  void Serialize(std::fstream file);
+  void Deserialize(std::fstream file);
 
   //Setters, getters.
   void SetBody();

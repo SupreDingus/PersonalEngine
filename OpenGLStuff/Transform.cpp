@@ -30,7 +30,6 @@ void Transform::Initialize()
   pos = glm::vec3(0.f, 0.f, 0.f);
   nextPos = pos;
   scale = glm::vec3(1.f, 1.f, 1.f);
-  rot = 0.f;
 }
 
 void Transform::Update(float dt)
@@ -47,6 +46,25 @@ void Transform::Destroy()
 {
   //Call the delete function on this.
   PHYSICS->DeleteComponent(this);
+}
+
+void Transform::Serialize(std::fstream file)
+{
+  //Send out position and scale.
+  file << pos.x << " " << pos.y << " " << pos.z << std::endl;
+  file << scale.x << " " << scale.y << " " << scale.z << std::endl;;
+}
+
+void Transform::Deserialize(std::fstream file)
+{
+  //Get the position and scale.
+  file >> pos.x;
+  file >> pos.y;
+  file >> pos.z;
+
+  file >> scale.x;
+  file >> scale.y;
+  file >> scale.z;
 }
 
 void Transform::SetPosition(float x, float y, float z)
@@ -74,11 +92,6 @@ void Transform::SetScale(float x, float y)
 void Transform::SetScale(float x)
 {
   scale = glm::vec3(x, x, 1.f);
-}
-
-void Transform::SetRotation(float x)
-{
-  rot = x;
 }
 
 glm::mat4 Transform::GetTransform() const

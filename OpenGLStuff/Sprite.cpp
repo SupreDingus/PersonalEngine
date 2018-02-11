@@ -1,6 +1,6 @@
 /*****************************************************************************/
 /*!
-The Sprite component controls what's displayed and stuff.
+  The Sprite component controls what's displayed and stuff.
 */
 /*****************************************************************************/
 #include "Sprite.h"
@@ -36,6 +36,16 @@ void Sprite::Destroy()
 {
   //Call the delete function on this.
   GRAPHICS->DeleteComponent(this);
+}
+
+void Sprite::Serialize(std::fstream file)
+{
+  //Nothing to send out...
+}
+
+void Sprite::Deserialize(std::fstream file)
+{
+  //Nothing to get...
 }
 
 void Sprite::SetTexture(Buffer* buffer)

@@ -22,6 +22,8 @@ public:
   void Initialize();
   void Update(float dt);
   void Destroy();
+  void Serialize(std::fstream file);
+  void Deserialize(std::fstream file);
 
   //Returns true if the object is grounded.
   bool IsGrounded() const;
