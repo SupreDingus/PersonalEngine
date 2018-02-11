@@ -58,3 +58,18 @@ void GameObject::Destroy()
     it->Destroy();
   }
 }
+
+std::vector<Component*> GameObject::GetComponents()
+{
+  return components;
+}
+
+void GameObject::SetName(std::string str)
+{
+  name = str;
+}
+
+std::string GameObject::GetName()
+{
+  return name;
+}

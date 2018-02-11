@@ -26,6 +26,12 @@ public:
   void AttachComponent(Component* add); //Adds the given component to the obj.
   void Destroy(); //Destroys the object.
 
+  std::vector<Component*> GetComponents(); //Returns ALL components.
+
+  void SetName(std::string str); //Set the name of the object.
+  std::string GetName(); //Get the name.
+
+private:
   std::vector<Component*> components; //Components attached to the object.
   std::string name;
 };
