@@ -91,17 +91,20 @@ void Collider::Destroy()
   PHYSICS->DeleteComponent(this);
 }
 
-void Collider::Serialize(std::fstream file)
+std::string Collider::Serialize()
 {
   //Values that will be put in file: mass, restitution, and AABB corners.
   //Put each value on it's own line.
-  file << mass << std::endl;
-  file << restitution << std::endl;
-  file << bottomLeft.x << " " << bottomLeft.y << std::endl;
-  file << topRight.x << " " << topRight.y << std::endl;
+  std::string str;
+  char* temp;
+  int check;
+
+  //Use sprintf to put the floats in the char.
+  check = sprintf(temp, "%.3f\n%.3f\n", mass, restitution);
+  str.append(temp);
 }
 
-void Collider::Deserialize(std::fstream file)
+void Collider::Deserialize(std::string)
 {
   //Extract mass, restitution, and AABB corners from the file.
   file >> mass;
