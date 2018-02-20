@@ -29,6 +29,6 @@ void Serializer::Serialize(GameObject* obj)
   //Iterate through the list.
   for (unsigned i = 0; i < list.size(); ++i)
   {
-    list[i]->Serialize(file);
+    //list[i]->Serialize(file);
   }
 }

@@ -91,38 +91,38 @@ void Collider::Destroy()
   PHYSICS->DeleteComponent(this);
 }
 
-std::string Collider::Serialize()
-{
-  //Values that will be put in file: mass, restitution, and AABB corners.
-  //Put each value on it's own line.
-  std::string str;
-  char* temp;
-  int check;
+//std::string Collider::Serialize()
+//{
+//  //Values that will be put in file: mass, restitution, and AABB corners.
+//  //Put each value on it's own line.
+//  std::string str;
+//  char* temp;
+//  int check;
+//
+//  //Use sprintf to put the floats in the char.
+//  check = sprintf(temp, "%.3f\n%.3f\n", mass, restitution);
+//  str.append(temp);
+//}
 
-  //Use sprintf to put the floats in the char.
-  check = sprintf(temp, "%.3f\n%.3f\n", mass, restitution);
-  str.append(temp);
-}
-
-void Collider::Deserialize(std::string)
-{
-  //Extract mass, restitution, and AABB corners from the file.
-  file >> mass;
-  file >> restitution;
-  file >> bottomLeft.x;
-  file >> bottomLeft.y;
-  file >> topRight.x;
-  file >> topRight.y;
-
-  //Calculate other values based on given ones.
-  invertMass = 1.f / mass;
-  xExtent = abs(topRight.x - bottomLeft.x);
-  yExtent = abs(topRight.y - bottomLeft.y);
-
-  //Set relevent components.
-  SetBody();
-  SetTransform();
-}
+//void Collider::Deserialize(std::string)
+//{
+//  //Extract mass, restitution, and AABB corners from the file.
+//  file >> mass;
+//  file >> restitution;
+//  file >> bottomLeft.x;
+//  file >> bottomLeft.y;
+//  file >> topRight.x;
+//  file >> topRight.y;
+//
+//  //Calculate other values based on given ones.
+//  invertMass = 1.f / mass;
+//  xExtent = abs(topRight.x - bottomLeft.x);
+//  yExtent = abs(topRight.y - bottomLeft.y);
+//
+//  //Set relevent components.
+//  SetBody();
+//  SetTransform();
+//}
 
 RigidBody* Collider::GetRigidBody() const
 {

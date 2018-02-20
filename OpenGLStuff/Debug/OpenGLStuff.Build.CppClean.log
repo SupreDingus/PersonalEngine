@@ -8,7 +8,6 @@ c:\users\super\desktop\openglstyff\openglstuff\debug\input.obj
 c:\users\super\desktop\openglstyff\openglstuff\debug\logic.obj
 c:\users\super\desktop\openglstyff\openglstuff\debug\main.obj
 c:\users\super\desktop\openglstyff\openglstuff\debug\math.obj
-c:\users\super\desktop\openglstyff\openglstuff\debug\collider.obj
 c:\users\super\desktop\openglstyff\openglstuff\debug\objectfactory.obj
 c:\users\super\desktop\openglstyff\openglstuff\debug\physics.obj
 c:\users\super\desktop\openglstyff\openglstuff\debug\playercontroller.obj
@@ -17,6 +16,15 @@ c:\users\super\desktop\openglstyff\openglstuff\debug\shader.obj
 c:\users\super\desktop\openglstyff\openglstuff\debug\sprite.obj
 c:\users\super\desktop\openglstyff\openglstuff\debug\transform.obj
 c:\users\super\desktop\openglstyff\openglstuff\debug\windowsystem.obj
+c:\users\super\desktop\openglstyff\openglstuff\debug\collider.obj
+c:\users\super\desktop\openglstyff\openglstuff\debug\serializer.obj
+c:\users\super\desktop\openglstyff\openglstuff\debug\glad.obj
+c:\users\super\desktop\openglstyff\debug\openglstuff.ilk
+c:\users\super\desktop\openglstyff\debug\openglstuff.exe
+c:\users\super\desktop\openglstyff\debug\openglstuff.pdb
 c:\users\super\desktop\openglstyff\openglstuff\debug\openglstuff.tlog\cl.command.1.tlog
 c:\users\super\desktop\openglstyff\openglstuff\debug\openglstuff.tlog\cl.read.1.tlog
 c:\users\super\desktop\openglstyff\openglstuff\debug\openglstuff.tlog\cl.write.1.tlog
+c:\users\super\desktop\openglstyff\openglstuff\debug\openglstuff.tlog\link.command.1.tlog
+c:\users\super\desktop\openglstyff\openglstuff\debug\openglstuff.tlog\link.read.1.tlog
+c:\users\super\desktop\openglstyff\openglstuff\debug\openglstuff.tlog\link.write.1.tlog
