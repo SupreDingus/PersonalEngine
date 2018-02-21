@@ -104,18 +104,25 @@ void RigidBody::Destroy()
   PHYSICS->DeleteComponent(this);
 }
 
-void RigidBody::Serialize(std::fstream file)
+std::string RigidBody::Serialize()
 {
-  //Input into the file of it's static and if it's bouncy.
-  file << stat << std::endl;
-  file << bouncy << std::endl;
+  //Input into the string of it's static and if it's bouncy.
+  std::string str;
+  char* temp;
+  int check;
+
+  check = sprintf(temp, "%i %i", (int)stat, (int)bouncy);
+  str.append(temp);
+
+  //Return the string.
+  return str;
 }
 
-void RigidBody::Deserialize(std::fstream file)
+void RigidBody::Deserialize(std::string str)
 {
   //Get the static and bouncy bools.
-  file >> stat;
-  file >> bouncy;
+  int tempA, tempB;
+  sscanf(str.c_str(), "%i %i", &tempA, &tempB);
 
   //Get relevent pointers.
   SetTransform();

@@ -19,11 +19,12 @@ public:
   ~GroundDetection();
   GroundDetection(const GroundDetection& rhs) = delete;
 
+  //Required component functions.
   void Initialize();
   void Update(float dt);
   void Destroy();
-  void Serialize(std::fstream file);
-  void Deserialize(std::fstream file);
+  std::string Serialize();
+  void Deserialize(std::string);
 
   //Returns true if the object is grounded.
   bool IsGrounded() const;

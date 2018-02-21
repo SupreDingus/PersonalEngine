@@ -48,23 +48,25 @@ void Transform::Destroy()
   PHYSICS->DeleteComponent(this);
 }
 
-void Transform::Serialize(std::fstream file)
+std::string Transform::Serialize()
 {
   //Send out position and scale.
-  file << pos.x << " " << pos.y << " " << pos.z << std::endl;
-  file << scale.x << " " << scale.y << " " << scale.z << std::endl;;
+  std::string str;
+  char* temp;
+  int check;
+
+  check = sprintf(temp, "%.3f %.3f %.3f\n", pos.x, pos.y, pos.z);
+  str.append(temp);
+
+  check = sprintf(temp, "%.3f %.3f %.3f", scale.x, scale.y, scale.z);
+  str.append(temp);
 }
 
-void Transform::Deserialize(std::fstream file)
+void Transform::Deserialize(std::string str)
 {
   //Get the position and scale.
-  file >> pos.x;
-  file >> pos.y;
-  file >> pos.z;
-
-  file >> scale.x;
-  file >> scale.y;
-  file >> scale.z;
+  sscanf(str.c_str(), "%.3f %.3f %.3f %.3f %.3f %.3f",
+    pos.x, pos.y, pos.z, scale.x, scale.y, scale.z);
 }
 
 void Transform::SetPosition(float x, float y, float z)

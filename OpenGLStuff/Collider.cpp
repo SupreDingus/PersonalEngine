@@ -91,38 +91,43 @@ void Collider::Destroy()
   PHYSICS->DeleteComponent(this);
 }
 
-//std::string Collider::Serialize()
-//{
-//  //Values that will be put in file: mass, restitution, and AABB corners.
-//  //Put each value on it's own line.
-//  std::string str;
-//  char* temp;
-//  int check;
-//
-//  //Use sprintf to put the floats in the char.
-//  check = sprintf(temp, "%.3f\n%.3f\n", mass, restitution);
-//  str.append(temp);
-//}
+std::string Collider::Serialize()
+{
+  //Values that will be put in file: mass, restitution, and AABB corners.
+  //Put each value on it's own line.
+  std::string str;
+  char* temp;
+  int check;
 
-//void Collider::Deserialize(std::string)
-//{
-//  //Extract mass, restitution, and AABB corners from the file.
-//  file >> mass;
-//  file >> restitution;
-//  file >> bottomLeft.x;
-//  file >> bottomLeft.y;
-//  file >> topRight.x;
-//  file >> topRight.y;
-//
-//  //Calculate other values based on given ones.
-//  invertMass = 1.f / mass;
-//  xExtent = abs(topRight.x - bottomLeft.x);
-//  yExtent = abs(topRight.y - bottomLeft.y);
-//
-//  //Set relevent components.
-//  SetBody();
-//  SetTransform();
-//}
+  //Use sprintf to put the floats in the char.
+  check = sprintf(temp, "%.3f\n%.3f\n", mass, restitution);
+  str.append(temp);
+
+  check = sprintf(temp, "%.3f %.3f\n", bottomLeft.x, bottomLeft.y);
+  str.append(temp);
+
+  check = sprintf(temp, "%.3f %.3f\n", topRight.x, topRight.y);
+  str.append(temp);
+
+  //Return the formatted string.
+  return str;
+}
+
+void Collider::Deserialize(std::string str)
+{
+  //Extract mass, restitution, and AABB corners from the file.
+  sscanf(str.c_str(), "%.3f %.3f %.3f %.3f %.3f %.3f",
+    mass, restitution, bottomLeft.x, bottomLeft.y, topRight.x, topRight.y);
+
+  //Calculate other values based on given ones.
+  invertMass = 1.f / mass;
+  xExtent = abs(topRight.x - bottomLeft.x);
+  yExtent = abs(topRight.y - bottomLeft.y);
+
+  //Set relevent components.
+  SetBody();
+  SetTransform();
+}
 
 RigidBody* Collider::GetRigidBody() const
 {

@@ -38,12 +38,13 @@ void Sprite::Destroy()
   GRAPHICS->DeleteComponent(this);
 }
 
-void Sprite::Serialize(std::fstream file)
+std::string Sprite::Serialize()
 {
   //Nothing to send out...
+  return std::string();
 }
 
-void Sprite::Deserialize(std::fstream file)
+void Sprite::Deserialize(std::string str)
 {
   //Nothing to get...
 }

@@ -89,14 +89,16 @@ void GroundDetection::Destroy()
   PHYSICS->DeleteComponent(this);
 }
 
-void GroundDetection::Serialize(std::fstream file)
+std::string GroundDetection::Serialize()
 {
   //Nothing needs to be sent to the file.
+  std::string str;
+  return str;
 }
 
-void GroundDetection::Deserialize(std::fstream file)
+void GroundDetection::Deserialize(std::string str)
 {
-  //SetRelevent components.
+  //Set relevent components.
   SetTransform();
   SetCollider();
 }

@@ -27,8 +27,8 @@ public:
   void Initialize();
   void Update(float dt);
   void Destroy();
-  void Serialize(std::fstream file);
-  void Deserialize(std::fstream file);
+  std::string Serialize();
+  void Deserialize(std::string);
 
   //Change transform stuff here.
   void SetPosition(float, float, float);
