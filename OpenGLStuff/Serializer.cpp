@@ -22,13 +22,17 @@ void Serializer::Serialize(GameObject* obj)
   std::vector<Component *> list = obj->GetComponents();
 
   //Setup the output file.
-  std::filebuf fb;
-  fb.open(folder + obj->GetName(), std::ios::out);
-  std::ostream file(&fb);
+  std::string fileName = folder + obj->GetName();
+  fileName.append(".txt");
+
+  std::fstream file(fileName.c_str(), std::fstream::out);
+
+  //Setup for serialization.
+  std::string temp;
 
   //Iterate through the list.
   for (unsigned i = 0; i < list.size(); ++i)
   {
-    //list[i]->Serialize(file);
+
   }
 }
