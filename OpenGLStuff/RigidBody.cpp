@@ -130,6 +130,11 @@ void RigidBody::Deserialize(std::string str)
   SetController();
 }
 
+std::string RigidBody::GetCompName()
+{
+  return "RigidBody";
+}
+
 Transform* RigidBody::GetTransform() const
 {
   return trans;

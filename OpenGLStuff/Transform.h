@@ -23,12 +23,14 @@ public:
   Transform();
   ~Transform();
 
-  //Component requirements.
+  //Required component functions.
   void Initialize();
   void Update(float dt);
   void Destroy();
+
   std::string Serialize();
   void Deserialize(std::string);
+  std::string GetCompName();
 
   //Change transform stuff here.
   void SetPosition(float, float, float);

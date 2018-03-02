@@ -92,6 +92,11 @@ void PlayerController::Deserialize(std::string str)
   SetBody();
 }
 
+std::string PlayerController::GetCompName()
+{
+  return "PlayerController";
+}
+
 void PlayerController::SetBody()
 {
   if (owner)

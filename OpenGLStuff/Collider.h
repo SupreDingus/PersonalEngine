@@ -41,8 +41,10 @@ public:
   void Initialize();
   void Update(float dt);
   void Destroy();
+
   std::string Serialize();
   void Deserialize(std::string str);
+  std::string GetCompName();
 
   //Getters and Setters.
   RigidBody* GetRigidBody() const;

@@ -24,11 +24,14 @@ public:
   ~RigidBody();
   RigidBody(const RigidBody& rhs) = delete;
 
+  //Required component functions.
   void Initialize();
   void Update(float dt);
   void Destroy();
+
   std::string Serialize();
   void Deserialize(std::string str);
+  std::string GetCompName();
 
   //Getters.
   Transform* GetTransform() const;

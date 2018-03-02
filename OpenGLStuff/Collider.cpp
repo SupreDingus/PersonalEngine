@@ -129,6 +129,11 @@ void Collider::Deserialize(std::string str)
   SetTransform();
 }
 
+std::string Collider::GetCompName()
+{
+  return "Collider";
+}
+
 RigidBody* Collider::GetRigidBody() const
 {
   return body;

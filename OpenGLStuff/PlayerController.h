@@ -26,11 +26,14 @@ public:
   ~PlayerController();
   PlayerController(const PlayerController& rhs) = delete;
 
+  //Required component functions.
   void Initialize();
   void Update(float dt);
   void Destroy();
+
   std::string Serialize();
   void Deserialize(std::string);
+  std::string GetCompName();
 
   //Setters, getters.
   void SetBody();

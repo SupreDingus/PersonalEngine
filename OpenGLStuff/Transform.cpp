@@ -69,6 +69,11 @@ void Transform::Deserialize(std::string str)
     pos.x, pos.y, pos.z, scale.x, scale.y, scale.z);
 }
 
+std::string Transform::GetCompName()
+{
+  return "Transform";
+}
+
 void Transform::SetPosition(float x, float y, float z)
 {
   pos = glm::vec3(x, y, z);

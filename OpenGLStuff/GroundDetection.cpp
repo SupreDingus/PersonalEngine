@@ -103,6 +103,11 @@ void GroundDetection::Deserialize(std::string str)
   SetCollider();
 }
 
+std::string GroundDetection::GetCompName()
+{
+  return "GroundDetection";
+}
+
 bool GroundDetection::IsGrounded() const
 {
   return grounded;

@@ -22,8 +22,9 @@ public:
   virtual void Destroy() = 0; //Free necessary stuff.
 
   //Serialization functions.
-  virtual std::string Serialize() = 0;
-  virtual void Deserialize(std::string) = 0;
+  virtual std::string Serialize() = 0; //Send out.
+  virtual void Deserialize(std::string) = 0; //Read in.
+  virtual std::string GetCompName() = 0; //Get name.
 
   //Have an owner pointer and ID.
   GameObject* owner;

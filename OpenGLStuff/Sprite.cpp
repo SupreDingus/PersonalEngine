@@ -49,6 +49,11 @@ void Sprite::Deserialize(std::string str)
   //Nothing to get...
 }
 
+std::string Sprite::GetCompName()
+{
+  return "Sprite";
+}
+
 void Sprite::SetTexture(Buffer* buffer)
 {
   //Just set the buffer pointer. It's already made.
